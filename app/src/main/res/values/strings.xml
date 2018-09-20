@@ -7,4 +7,5 @@
     <string name="checkbox">CheckBox</string>
     <string name="what_does_this_do">What does this do?</string>
     <string name="radiobutton">RadioButton</string>
+    <string name="login_name">login name</string>
 </resources>
