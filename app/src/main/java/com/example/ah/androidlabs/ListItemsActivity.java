@@ -1,9 +1,9 @@
 package com.example.ah.androidlabs;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class ListItemsActivity extends AppCompatActivity {
+public class ListItemsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

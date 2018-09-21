@@ -10,9 +10,11 @@
 
     <RadioButton
         android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
+        android:layout_width="161dp"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
+        android:layout_column="0"
+        android:layout_row="0"
         android:gravity="fill"
         android:text="@string/radiobutton" />
 
@@ -21,6 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
+        android:layout_column="1"
+        android:layout_row="0"
         android:gravity="fill"
         android:text="@string/checkbox" />
 
@@ -29,14 +33,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
+        android:layout_column="0"
+        android:layout_row="1"
         android:gravity="fill"
         android:text="@string/what_does_this_do" />
 
-    <ImageView
-        android:id="@+id/imageView"
+    <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
+        android:layout_column="1"
+        android:layout_row="1"
         android:gravity="fill"
         android:src="@android:drawable/ic_menu_camera" />
+
 </GridLayout>
