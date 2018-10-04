@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class StartActivity extends Activity {
 
     private Button startButton;
+    private Button  startChat;
 
     protected static final String ACTIVITY_NAME = "StartActivity";
     @Override
@@ -23,12 +24,19 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_start);
         // reference startButton
         startButton = findViewById(R.id.button);
-
         startButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
                 startActivityForResult(intent,50);
+            }
+        });
+
+        startChat = findViewById(R.id.button3);
+        startChat.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+            Log.i(ACTIVITY_NAME, "User clicked Start Chat");
             }
         });
     }
