@@ -11,5 +11,7 @@
     <string name="dialog_title">Veuillez confirmer</string>
     <string name="dialog_message">Êtes-vous sûr de vouloir quitter?</string>
     <string name="ok">d\'accord</string>
-    <string name="cancel">annuler</string>>
+    <string name="cancel">annuler</string>
+    <string name="start_chat">démarrer la discussion</string>>
+    <string name="send">envoyer</string>
 </resources>

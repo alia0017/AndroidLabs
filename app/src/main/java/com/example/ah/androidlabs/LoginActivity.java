@@ -43,9 +43,13 @@ public class LoginActivity extends Activity {
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                String input = emailEditText.getText().toString();
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(DEFAULT_EMAIL_KEY, input);
+                editor.commit();
+
                 Intent intent = new Intent(LoginActivity.this, StartActivity.class);
                 startActivity(intent);
-
             }
         });
     }
