@@ -1,10 +1,8 @@
 package com.example.ah.androidlabs;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class ChatWindow extends AppCompatActivity {
 
@@ -27,8 +21,9 @@ public class ChatWindow extends AppCompatActivity {
     private EditText editText;
     private Button sendButton;
     private ListView listView;
-    private static ArrayList<String> arrayList;
+    private static List<String> arrayList;
     private static ChatAdapter messageAdapter;
+    private ChatDatabaseHelper dbHelper;
 
     protected static final String ACTIVITY_NAME = "ChatWindow";
 
@@ -45,7 +40,12 @@ public class ChatWindow extends AppCompatActivity {
         // Initialize the variable sendButton
         sendButton = (Button) findViewById(R.id.button4);
 
-        arrayList  = new ArrayList<>();
+        //Create ChatDatabaseHelper Object
+        dbHelper = new ChatDatabaseHelper(this);
+
+        //Message is added to the arrayList
+        arrayList = dbHelper.getAllMessage();
+
         //set the data source of the listView to be a new ChatAdapter object
         messageAdapter = new ChatAdapter(this);
         listView.setAdapter(messageAdapter);
@@ -53,6 +53,7 @@ public class ChatWindow extends AppCompatActivity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dbHelper.insertMessage(editText.getText().toString());
                 arrayList.add(editText.getText().toString());
                 //this restarts the process of getCount() & getView()
                 messageAdapter.notifyDataSetChanged();
@@ -95,5 +96,10 @@ public class ChatWindow extends AppCompatActivity {
             message.setText(getItem(position)); // get the string at position
             return result;
         }
+    }
+    @Override
+    protected void onDestroy(){
+        Log.i(ACTIVITY_NAME, "In onDestroy()");
+        super.onDestroy();
     }
 }
