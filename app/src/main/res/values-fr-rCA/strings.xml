@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab1</string>
+    <string name="app_name">Lab5</string>
     <string name="hello_message">Bonjour!</string>
     <string name="Login">S\'identifier</string>
     <string name="Password">Mot de passe</string>
