@@ -15,6 +15,7 @@ public class StartActivity extends Activity {
 
     private Button startButton;
     private Button startChat;
+    private Button weatherButton;
 
     protected static final String ACTIVITY_NAME = "StartActivity";
     @Override
@@ -24,7 +25,9 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_start);
         // reference startButton
         startButton = findViewById(R.id.button);
-        startChat = findViewById(R.id.button3);
+        startChat = findViewById(R.id.start_button);
+        weatherButton = findViewById(R.id.weather_button);
+
 
         startButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -33,11 +36,17 @@ public class StartActivity extends Activity {
                 startActivityForResult(intent,50);
             }
         });
-
         startChat.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(StartActivity.this, ChatWindow.class);
+                startActivity(intent);
+            }
+        });
+        weatherButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent (StartActivity.this, WeatherForecast.class);
                 startActivity(intent);
             }
         });

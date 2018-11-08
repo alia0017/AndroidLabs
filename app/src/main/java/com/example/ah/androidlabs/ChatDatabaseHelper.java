@@ -49,14 +49,12 @@ public class ChatDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void insertMessage(String message) {
-
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_MESSAGE, message);
         db.insert(TABLE_NAME, "", contentValues);
         }
 
     public List<String> getAllMessage() {
-
         final List<String> messages = new ArrayList<>();
 
         Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_ID, KEY_MESSAGE},
