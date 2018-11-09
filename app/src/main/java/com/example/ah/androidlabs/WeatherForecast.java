@@ -86,22 +86,22 @@ public class WeatherForecast extends Activity {
                             case "city":
                                 location = xpp.getAttributeValue(null, "name");
                                 publishProgress(25,50,75);
-                                Log.i("city", location);
+                                Log.i("Location", location);
                                 break;
                             case "temperature":
                                 currentTemp = xpp.getAttributeValue(null, "value");
                                 publishProgress(25,50,75);
-                                Log.i("current temperature", currentTemp);
+                                Log.i("Current Temperature", currentTemp);
                                 minimumTemp = xpp.getAttributeValue(null, "min");
                                 publishProgress(25,50,75);
-                                Log.i("Minimum temperature", minimumTemp);
+                                Log.i("Minimum Temperature", minimumTemp);
                                 maximumTemp = xpp.getAttributeValue(null, "max");
                                 publishProgress(25,50,75);
-                                Log.i("Maximum temperature", maximumTemp);
+                                Log.i("Maximum Temperature", maximumTemp);
                                 break;
                             case "speed":
                                 windSpeed = xpp.getAttributeValue(null, "value");
-                                Log.i("Wind speed", windSpeed);
+                                Log.i("Wind Speed", windSpeed);
                                 publishProgress(25,50,75);
                                 break;
                             case "weather":
@@ -128,6 +128,7 @@ public class WeatherForecast extends Activity {
                 URL imageURL = new URL(URL_IMAGE + iconName + ".png");
 
                 bitmap = getImage(imageURL);
+
                 outputStream = openFileOutput(iconName + ".png", Context.MODE_PRIVATE);
                 bitmap.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
                 outputStream.flush();
@@ -168,6 +169,7 @@ public class WeatherForecast extends Activity {
 
         Bitmap getImage(URL url) {
             HttpURLConnection connection = null;
+            //connect to server
             try {
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
