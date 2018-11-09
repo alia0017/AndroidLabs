@@ -23,8 +23,14 @@
         android:text="@string/ButtonText" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/start_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/start_chat" />
+
+    <Button
+        android:id="@+id/weather_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weather"/>
 </LinearLayout>

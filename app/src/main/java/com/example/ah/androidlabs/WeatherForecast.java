@@ -86,18 +86,18 @@ public class WeatherForecast extends Activity {
                             case "city":
                                 location = xpp.getAttributeValue(null, "name");
                                 publishProgress(25,50,75);
-                                Log.i("city", location);
+                                Log.i("Location", location);
                                 break;
                             case "temperature":
                                 currentTemp = xpp.getAttributeValue(null, "value");
                                 publishProgress(25,50,75);
-                                Log.i("current temperature", currentTemp);
+                                Log.i("Current Temperature", currentTemp);
                                 minimumTemp = xpp.getAttributeValue(null, "min");
                                 publishProgress(25,50,75);
-                                Log.i("Minimum temperature", minimumTemp);
+                                Log.i("Minimum Temperature", minimumTemp);
                                 maximumTemp = xpp.getAttributeValue(null, "max");
                                 publishProgress(25,50,75);
-                                Log.i("Maximum temperature", maximumTemp);
+                                Log.i("Maximum Temperature", maximumTemp);
                                 break;
                             case "speed":
                                 windSpeed = xpp.getAttributeValue(null, "value");

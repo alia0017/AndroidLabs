@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ah.androidlabs">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -23,7 +27,8 @@
         </activity>
         <activity android:name=".ListItemsActivity" />
         <activity android:name=".ChatWindow" />
-        <activity android:name=".ChatDatabaseHelper"></activity>
+        <activity android:name=".ChatDatabaseHelper" />
+        <activity android:name=".WeatherForecast" />
     </application>
 
 </manifest>
