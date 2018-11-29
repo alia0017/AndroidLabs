@@ -54,6 +54,7 @@ public class WeatherForecast extends Activity {
         ForecastQuery getForecast = new ForecastQuery();
         getForecast.execute();
     }
+
     // Parameter, Progess, result
     private class ForecastQuery extends AsyncTask<String, Integer, String> {
         Bitmap bitmap;
@@ -85,58 +86,60 @@ public class WeatherForecast extends Activity {
                         switch (xpp.getName()) {
                             case "city":
                                 location = xpp.getAttributeValue(null, "name");
-                                publishProgress(25,50,75);
+                                publishProgress(25);
                                 Log.i("Location", location);
                                 break;
                             case "temperature":
                                 currentTemp = xpp.getAttributeValue(null, "value");
-                                publishProgress(25,50,75);
+                                publishProgress(40);
                                 Log.i("Current Temperature", currentTemp);
                                 minimumTemp = xpp.getAttributeValue(null, "min");
-                                publishProgress(25,50,75);
+                                publishProgress(60);
                                 Log.i("Minimum Temperature", minimumTemp);
                                 maximumTemp = xpp.getAttributeValue(null, "max");
-                                publishProgress(25,50,75);
+                                publishProgress(70);
                                 Log.i("Maximum Temperature", maximumTemp);
                                 break;
                             case "speed":
                                 windSpeed = xpp.getAttributeValue(null, "value");
                                 Log.i("Wind Speed", windSpeed);
-                                publishProgress(25,50,75);
+                                publishProgress(80);
                                 break;
                             case "weather":
                                 iconName = xpp.getAttributeValue(null, "icon");
-                                publishProgress(100);
+                                publishProgress(90);
                                 break;
                         }
                     }
                     xpp.next();
                 }
 
-            if(fileExistance(iconName + ".png")) {
-                Log.i(ACTIVITY_NAME, "Weather image exists, read file");
-                FileInputStream fileinputStream = null;
-                try {
-                    fileinputStream = openFileInput(iconName + ".png");
-                } catch (FileNotFoundException e){
-                    e.printStackTrace();
-                } bitmap = BitmapFactory.decodeStream(fileinputStream);
-            } else {
-                Log.i(ACTIVITY_NAME, "Weather image does not exist, download URL");
-                FileOutputStream outputStream = null;
-                String URL_IMAGE = "http://openweathermap.org/img/w/";
-                URL imageURL = new URL(URL_IMAGE + iconName + ".png");
+                if (fileExistance(iconName + ".png")) {
+                    Log.i(ACTIVITY_NAME, "Weather image exists, read file");
+                    FileInputStream fileinputStream = null;
+                    try {
+                        fileinputStream = openFileInput(iconName + ".png");
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    bitmap = BitmapFactory.decodeStream(fileinputStream);
+                } else {
+                    Log.i(ACTIVITY_NAME, "Weather image does not exist, download URL");
+                    FileOutputStream outputStream = null;
+                    String URL_IMAGE = "http://openweathermap.org/img/w/";
+                    URL imageURL = new URL(URL_IMAGE + iconName + ".png");
 
-                bitmap = getImage(imageURL);
+                    bitmap = getImage(imageURL);
 
-                outputStream = openFileOutput(iconName + ".png", Context.MODE_PRIVATE);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
-                outputStream.flush();
-                outputStream.close();
-            }
-                } catch (Exception e) {
-                    Log.i("Exception", e.getMessage());
+                    outputStream = openFileOutput(iconName + ".png", Context.MODE_PRIVATE);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
+                    outputStream.flush();
+                    outputStream.close();
                 }
+                publishProgress(100);
+            } catch (Exception e) {
+                Log.i("Exception", e.getMessage());
+            }
             return "Done";
         }
 
@@ -152,10 +155,10 @@ public class WeatherForecast extends Activity {
         @Override
         protected void onPostExecute(String args) {
             locationView.setText(location);
-            curTempView.setText("Current: "+ currentTemp + "°C");
+            curTempView.setText("Current: " + currentTemp + "°C");
             minTempView.setText("Min: " + minimumTemp + "°C");
             maxTempView.setText("Max: " + maximumTemp + "°C");
-            windSpeedView.setText("Wind Speed:" + windSpeed);
+            windSpeedView.setText("Wind Speed: " + windSpeed);
             weatherImage.setImageBitmap(bitmap);
             progressBar.setVisibility(View.INVISIBLE);
             Toast.makeText(WeatherForecast.this, "Updated Weather", Toast.LENGTH_SHORT).show();
@@ -195,7 +198,6 @@ public class WeatherForecast extends Activity {
                 return null;
             }
         }
-
     }
 }
 

@@ -15,4 +15,7 @@
     <string name="start_chat">démarrer la discussion</string>>
     <string name="send">envoyer</string>
     <string name="weather">Météo</string>
+    <string name="id">ID=</string>
+    <string name="delete_this_message">DELETE THIS MESSAGE</string>
+    <string name="messagehere">MessageHere</string>
 </resources>
