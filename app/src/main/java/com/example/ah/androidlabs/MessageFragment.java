@@ -36,8 +36,8 @@ public class MessageFragment extends Fragment {
         idView.setText(Long.toString(infoToPass.getLong("id")));
         messageView.setText(infoToPass.getString("message"));
 
-        Log.i("id selected", Long.toString(infoToPass.getLong("id")));
-        Log.i("message selected", infoToPass.getString("message"));
+        Log.i("ID Selected", Long.toString(infoToPass.getLong("id")));
+        Log.i("Message", infoToPass.getString("message"));
 
         Button deleteButton = view.findViewById(R.id.delete_button);
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +46,7 @@ public class MessageFragment extends Fragment {
                 if (infoToPass.getBoolean("isTablet")) {
                     chatWindow.deleteMessage(infoToPass.getLong("id"));
                     getFragmentManager().beginTransaction().remove(MessageFragment.this).commit();
+
                     /* Long Version
                     FragmentManager fm = getFragmentManager();
                     FragmentTransaction ftrans = fm.beginTransaction();

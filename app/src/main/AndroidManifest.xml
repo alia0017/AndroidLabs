@@ -29,6 +29,7 @@
         <activity android:name=".ChatWindow" />
         <activity android:name=".WeatherForecast" />
         <activity android:name=".MessageDetails" />
+        <activity android:name=".TestToolbar" />
     </application>
 
 </manifest>

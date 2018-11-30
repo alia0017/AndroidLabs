@@ -14,7 +14,7 @@ public class ChatDatabaseHelper extends SQLiteOpenHelper {
     final static String KEY_MESSAGE = "message";
 
 
-    protected final static String ACTIVITY_NAME = "ChatDatabaseHelper";
+    private final static String ACTIVITY_NAME = "ChatDatabaseHelper";
     ChatDatabaseHelper(Context ctx){
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }

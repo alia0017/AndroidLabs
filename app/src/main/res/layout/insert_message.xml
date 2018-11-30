@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="20dp"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:text="@string/what_is_your_new_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/new_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/type_here"/>
+
+</LinearLayout>

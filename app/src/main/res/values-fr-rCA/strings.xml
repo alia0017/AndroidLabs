@@ -18,4 +18,13 @@
     <string name="id">ID=</string>
     <string name="delete_this_message">DELETE THIS MESSAGE</string>
     <string name="messagehere">MessageHere</string>
+    <string name="one">One</string>
+    <string name="two">two</string>
+    <string name="three">three</string>
+    <string name="toolbar">Toolbar</string>
+    <string name="About">about</string>
+    <string name="display_snackbar">Display SnackBar</string>
+    <string name="what_is_your_new_message">What is your new message?</string>
+    <string name="type_here">Type here</string>
+    <string name="new_message">New Message</string>
 </resources>

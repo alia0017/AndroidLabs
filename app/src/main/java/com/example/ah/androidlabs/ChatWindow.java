@@ -90,9 +90,9 @@ public class ChatWindow extends Activity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 500 && resultCode == RESULT_OK) {
-            Long messageID = data.getLongExtra("sendIndex", -1);
+            Long messageID = data.getLongExtra("sendIndex", 0);
             deleteMessage(messageID);
-            Log.i(ACTIVITY_NAME, "Deleted: "+ messageID);
+            Log.i(ACTIVITY_NAME, "ID Deleted" + messageID);
         }
     }
 
@@ -101,7 +101,7 @@ public class ChatWindow extends Activity {
         //db.execSQL("DELETE FROM " + dbHelper.TABLE_NAME + " WHERE " + dbHelper.KEY_ID + " = " + id);
         int numRowsDeleted = db.delete(dbHelper.TABLE_NAME, dbHelper.KEY_ID + " = " + id, null);
         moveCursor();
-        Log.i(ACTIVITY_NAME, "Deleted: "+ numRowsDeleted);
+        Log.i(ACTIVITY_NAME, "numRowsDeleted: "+ numRowsDeleted);
         messageAdapter.notifyDataSetChanged();
     }
 

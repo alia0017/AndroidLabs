@@ -169,7 +169,6 @@ public class WeatherForecast extends Activity {
             return file.exists();
         }
 
-
         Bitmap getImage(URL url) {
             HttpURLConnection connection = null;
             //connect to server
