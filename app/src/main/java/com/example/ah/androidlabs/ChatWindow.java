@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -38,9 +37,9 @@ public class ChatWindow extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(ACTIVITY_NAME, "User clicked Start Chat");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_window);
+        Log.i(ACTIVITY_NAME, "User clicked Start Chat");
 
         checkTablet = ((findViewById(R.id.frame_layout)) !=null);
         dbHelper = new ChatDatabaseHelper(this);
@@ -76,6 +75,7 @@ public class ChatWindow extends Activity {
                     FragmentTransaction ftrans = fm.beginTransaction();
                     MessageFragment mf = new MessageFragment();
                     mf.setArguments(fragmentArgs);
+
                     ftrans.replace(R.id.frame_layout, mf);
                     ftrans.commit();
                 } else {

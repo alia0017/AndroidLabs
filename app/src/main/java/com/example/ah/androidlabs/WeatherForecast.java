@@ -107,6 +107,7 @@ public class WeatherForecast extends Activity {
                                 break;
                             case "weather":
                                 iconName = xpp.getAttributeValue(null, "icon");
+                                Log.i("Weather", iconName);
                                 publishProgress(90);
                                 break;
                         }

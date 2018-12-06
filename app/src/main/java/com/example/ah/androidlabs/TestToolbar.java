@@ -67,7 +67,8 @@ public class TestToolbar extends AppCompatActivity {
 
                 break;
             case R.id.option_three:
-                final View view = getLayoutInflater().inflate(R.layout.insert_message,null);
+                final View view;
+                view = getLayoutInflater().inflate(R.layout.insert_message,null);
                 AlertDialog.Builder builder2 = new AlertDialog.Builder(TestToolbar.this);
                 builder2.setTitle(R.string.dialog_title);
                 builder2.setView(view);

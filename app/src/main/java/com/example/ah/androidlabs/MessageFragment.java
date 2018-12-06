@@ -32,7 +32,6 @@ public class MessageFragment extends Fragment {
         TextView idView = view.findViewById(R.id.id_here);
         TextView messageView = view.findViewById(R.id.message_here);
 
-
         idView.setText(Long.toString(infoToPass.getLong("id")));
         messageView.setText(infoToPass.getString("message"));
 
@@ -46,12 +45,6 @@ public class MessageFragment extends Fragment {
                 if (infoToPass.getBoolean("isTablet")) {
                     chatWindow.deleteMessage(infoToPass.getLong("id"));
                     getFragmentManager().beginTransaction().remove(MessageFragment.this).commit();
-
-                    /* Long Version
-                    FragmentManager fm = getFragmentManager();
-                    FragmentTransaction ftrans = fm.beginTransaction();
-                    ftrans.remove(this);
-                    ftrans.commit();*/
                 } else {
                     Intent intent = new Intent();
                     intent.putExtra("sendIndex", infoToPass.getLong("id", 0));
